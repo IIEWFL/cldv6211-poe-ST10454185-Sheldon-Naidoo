@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EventEaseManagementSystem.Models.BookingView>
+
+@{
+    ViewData["Title"] = "Booking List";
+}
+
+<h2>Booking List</h2>
+
+<form class="mb-4" method="get" asp-action="Index">
+    <div class="mb-2 mt-2">
+        <input type="text" name="searchQuery" class="form-control" placeholder="Search By Id or Event Name" value="@Context.Request.Query["searchQuery"]" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search Booking</button>
+    @if (!string.IsNullOrEmpty(Context.Request.Query["searchQuery"]))
+    {
+        <a href="@Url.Action("Index", "BookingView")" class="btn btn-outline-secondary">Clear</a>
+    }
+</form>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Booking Date</th>
+            <th>Venue</th>
+            <th>Location</th>
+            <th>Capacity</th>
+            <th>Event Name</th>
+            <th>Event Date</th>
+            <th>Details</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.BookingDate.ToShortDateString()</td>
+                <td>@booking.VenueName</td>
+                <td>@booking.VenueLocation</td>
+                <td>@booking.Capacity</td>
+                <td>@booking.EventName</td>
+                <td>@booking.EventDate.ToShortDateString()</td>
+                <td>@booking.Details</td>
+                <td>
+                    <img src="@booking.Image" alt="Venue Image" width="100" />
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@booking.BookingId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

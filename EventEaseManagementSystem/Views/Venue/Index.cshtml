@@ -1,0 +1,99 @@
+﻿@model IEnumerable<EventEaseManagementSystem.Models.VenueView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Venue</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form class="mb-4" method="get" asp-action="Index">
+    <div class="mb-2 mt-2">
+        <input type="text" name="searchQuery" class="form-control" placeholder="Search By Id or Venue Name or Location" value="@Context.Request.Query["searchQuery"]"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+
+    @if (!string.IsNullOrEmpty(Context.Request.Query["searchQuery"]))
+    {
+        <a href="@Url.Action("Index", "Venue")" class="btn btn-outline-secondary">Clear</a>
+    }
+    
+</form>
+
+@if(TempData["SuccessMessage"] != null)
+{
+    <div class="mb-4 mb-4 alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["UpdateMessage"] != null)
+{
+    <div class="mb-4 mb-4 alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["UpdateMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["DeleteMessage"] != null)
+{
+    <div class="mb-4 mb-4 alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["DeleteMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VenueName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" alt="Venue Image" style="max-width: 150px; height: auto;" />
+                    }
+                    else
+                    {
+                        <span>No image</span>
+                    }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VenueId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VenueId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VenueId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
