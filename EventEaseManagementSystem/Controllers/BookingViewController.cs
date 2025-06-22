@@ -45,26 +45,34 @@ namespace EventEaseManagementSystem.Controllers
         // GET: BookingView
         public async Task<IActionResult> Index(string searchQuery)
         {
-            var Bookings = _context.BookingViews.AsQueryable();
+            var bookingsList = await _context.BookingViews.ToListAsync();
+
             if (!string.IsNullOrEmpty(searchQuery))
             {
-                Bookings = Bookings.Where(B =>
+                searchQuery = searchQuery.ToLower();
+
+                bookingsList = bookingsList.Where(B =>
                 B.BookingId.ToString().Contains(searchQuery) ||
-                B.EventName.Contains(searchQuery));
+                B.VenueId.ToString().Contains(searchQuery) ||
+                B.VenueName.ToLower().Contains(searchQuery) ||
+                B.VenueLocation.ToLower().Contains(searchQuery) ||
+                B.EventId.ToString().Contains(searchQuery) ||
+                B.EventName.ToLower().Contains(searchQuery) ||
+                B.Details.ToLower().Contains(searchQuery)).ToList();
             }
 
             // Fetch the data from the database
-            var bookings = await _context.BookingViews.ToListAsync();
+            //var bookings = await _context.BookingViews.ToListAsync();
 
             // Generate SAS URLs for each image
-            foreach (var booking in bookings)
+            foreach (var booking in bookingsList)
             {
                 booking.Image = string.IsNullOrEmpty(booking.Image)
                     ? ""
                     : GenerateSasUrl(booking.Image);
             }
 
-            return View(bookings);
+            return View(bookingsList);
         }
 
         // GET: BookingView Details

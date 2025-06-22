@@ -8,7 +8,7 @@
 
 <form class="mb-4" method="get" asp-action="Index">
     <div class="mb-2 mt-2">
-        <input type="text" name="searchQuery" class="form-control" placeholder="Search By Id or Event Name" value="@Context.Request.Query["searchQuery"]" />
+        <input type="text" name="searchQuery" class="form-control" placeholder="Search By Id, name or details" value="@Context.Request.Query["searchQuery"]" />
     </div>
     <button type="submit" class="btn btn-primary">Search Booking</button>
     @if (!string.IsNullOrEmpty(Context.Request.Query["searchQuery"]))

@@ -10,6 +10,17 @@
     <a asp-action="Create">Create New</a>
 </p>
 
+<form class="mb-4" method="get" asp-action="Index">
+    <div class="input-group mb-3">
+        <input type="text" name="searchQuery" class="form-control" placeholder="Search by Venue ID, Event ID or Booking Date" value="@Context.Request.Query["searchQuery"]" />
+        <button type="submit" class="btn btn-primary">Search</button>
+        @if (!string.IsNullOrEmpty(Context.Request.Query["searchQuery"]))
+        {
+            <a href="@Url.Action("Index", "Booking")" class="btn btn-outline-secondary">Clear</a>
+        }
+    </div>
+</form>
+
 @if (TempData["SuccessMessage"] != null)
 {
     <div class="mb-4 mb-4 alert alert-success alert-dismissible fade show" role="alert">

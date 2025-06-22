@@ -3,48 +3,40 @@
   "WorkspaceRootPath": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\models\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:models\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\views\\venue\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:views\\venue\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\data\\eventeasedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:data\\eventeasedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\views\\bookingview\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:views\\bookingview\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\controllers\\bookingviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:controllers\\bookingviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\views\\bookingview\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:views\\bookingview\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\controllers\\bookingviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:controllers\\bookingviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\data\\eventeasedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:data\\eventeasedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\models\\bookingview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:models\\bookingview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\views\\booking\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:views\\booking\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\models\\eventview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:models\\eventview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\views\\event\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:views\\event\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\views\\venue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:views\\venue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|solutionrelative:controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8658149-3D71-4C2C-A5DF-1B9E71FE0426}|EventEaseManagementSystem.csproj|c:\\st10454185_cldv6211_poe_part3\\cldv6211-poe-st10454185-sheldon-naidoo\\eventeasemanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -62,144 +54,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Event.cs",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Models\\Event.cs",
-              "RelativeDocumentMoniker": "Models\\Event.cs",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Models\\Event.cs",
-              "RelativeToolTip": "Models\\Event.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T19:57:44.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "VenueController.cs",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\VenueController.cs",
-              "RelativeDocumentMoniker": "Controllers\\VenueController.cs",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\VenueController.cs",
-              "RelativeToolTip": "Controllers\\VenueController.cs",
-              "ViewState": "AgIAAAwBAAAAAAAAAAAiwCQBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T20:49:26.987Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EventController.cs",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\EventController.cs",
-              "RelativeDocumentMoniker": "Controllers\\EventController.cs",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\EventController.cs",
-              "RelativeToolTip": "Controllers\\EventController.cs",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAAAKwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T15:05:33.048Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\Venue\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Venue\\Create.cshtml",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\Venue\\Create.cshtml",
-              "RelativeToolTip": "Views\\Venue\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T22:02:39.175Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Venue.cs",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Models\\Venue.cs",
-              "RelativeDocumentMoniker": "Models\\Venue.cs",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Models\\Venue.cs",
-              "RelativeToolTip": "Models\\Venue.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAzwBUAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T15:09:14.721Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EventEaseDBContext.cs",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Data\\EventEaseDBContext.cs",
-              "RelativeDocumentMoniker": "Data\\EventEaseDBContext.cs",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Data\\EventEaseDBContext.cs",
-              "RelativeToolTip": "Data\\EventEaseDBContext.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAwwEEAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T22:22:36.253Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BookingView.cs",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Models\\BookingView.cs",
-              "RelativeDocumentMoniker": "Models\\BookingView.cs",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Models\\BookingView.cs",
-              "RelativeToolTip": "Models\\BookingView.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAmwBMAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T18:12:07.474Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BookingViewController.cs",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\BookingViewController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BookingViewController.cs",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\BookingViewController.cs",
-              "RelativeToolTip": "Controllers\\BookingViewController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAgwFAAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T16:42:27.058Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\BookingView\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\BookingView\\Index.cshtml",
               "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\BookingView\\Index.cshtml",
               "RelativeToolTip": "Views\\BookingView\\Index.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAC0AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAkwA4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T22:06:45.163Z"
+              "WhenOpened": "2025-06-22T15:13:18.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookingViewController.cs",
+              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\BookingViewController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookingViewController.cs",
+              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\BookingViewController.cs",
+              "RelativeToolTip": "Controllers\\BookingViewController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAkwEoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T15:06:25.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EventEaseDBContext.cs",
+              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Data\\EventEaseDBContext.cs",
+              "RelativeDocumentMoniker": "Data\\EventEaseDBContext.cs",
+              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Data\\EventEaseDBContext.cs",
+              "RelativeToolTip": "Data\\EventEaseDBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T15:06:06.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\Booking\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Booking\\Index.cshtml",
+              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\Booking\\Index.cshtml",
+              "RelativeToolTip": "Views\\Booking\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-22T14:56:11.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookingController.cs",
+              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "Controllers\\BookingController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAcwCQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T14:50:58.518Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\BookingView\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\BookingView\\Details.cshtml",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\BookingView\\Details.cshtml",
-              "RelativeToolTip": "Views\\BookingView\\Details.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAeAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\Event\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Event\\Index.cshtml",
+              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\Event\\Index.cshtml",
+              "RelativeToolTip": "Views\\Event\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-21T22:06:46.868Z"
+              "WhenOpened": "2025-06-22T14:06:12.411Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EventView.cs",
-              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Models\\EventView.cs",
-              "RelativeDocumentMoniker": "Models\\EventView.cs",
-              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Models\\EventView.cs",
-              "RelativeToolTip": "Models\\EventView.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA4AAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "EventController.cs",
+              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\EventController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EventController.cs",
+              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\EventController.cs",
+              "RelativeToolTip": "Controllers\\EventController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T20:04:48.49Z"
+              "WhenOpened": "2025-06-22T13:58:07.667Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\Venue\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Venue\\Index.cshtml",
+              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Views\\Venue\\Index.cshtml",
+              "RelativeToolTip": "Views\\Venue\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-22T14:07:18.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VenueController.cs",
+              "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\VenueController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VenueController.cs",
+              "ToolTip": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Controllers\\VenueController.cs",
+              "RelativeToolTip": "Controllers\\VenueController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T13:58:27.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -207,11 +183,12 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-21T11:44:53.016Z"
+              "WhenOpened": "2025-06-21T11:44:53.016Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\ST10454185_CLDV6211_POE_Part3\\cldv6211-poe-ST10454185-Sheldon-Naidoo\\EventEaseManagementSystem\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",

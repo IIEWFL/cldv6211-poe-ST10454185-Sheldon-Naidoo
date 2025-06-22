@@ -21,10 +21,19 @@ namespace EventEaseManagementSystem.Controllers
         }
 
         // GET: Event
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchQuery)
         {
-            var eventEaseDBContext = _context.Events.Include(e => e.Venue);
-            return View(await eventEaseDBContext.ToListAsync());
+            var events = _context.Events.Include(e => e.Venue).AsQueryable();
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                searchQuery = searchQuery.ToLower();
+
+                events = events.Where(e =>
+                e.EventName.ToLower().Contains(searchQuery) ||
+                e.Description.ToLower().Contains(searchQuery) ||
+                EF.Functions.Like(e.EventDate.ToString(), $"%(searchQuery%)"));
+            }
+            return View(await events.ToListAsync());
         }
 
         // GET: Event/Details/5

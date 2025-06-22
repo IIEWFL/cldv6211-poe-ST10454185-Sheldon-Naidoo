@@ -20,10 +20,20 @@ namespace EventEaseManagementSystem.Controllers
         }
 
         // GET: Booking
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchQuery)
         {
-            var eventEaseDBContext = _context.Bookings.Include(b => b.Event).Include(b => b.Venue);
-            return View(await eventEaseDBContext.ToListAsync());
+            var bookings = _context.Bookings.Include(b => b.Event).Include(b => b.Venue).AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                bookings = bookings.Where(b =>
+                    b.VenueId.ToString().Contains(searchQuery) ||
+                    b.EventId.ToString().Contains(searchQuery) ||
+                    b.BookingDate.ToString().Contains(searchQuery)
+                );
+            }
+
+            return View(await bookings.ToListAsync());
         }
 
         // GET: Booking/Details/5
