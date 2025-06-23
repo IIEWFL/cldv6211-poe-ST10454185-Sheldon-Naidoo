@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace EventEaseManagementSystem.Models;
 
@@ -14,6 +15,10 @@ public partial class Event
     public string Description { get; set; } = null!;
 
     public int? VenueId { get; set; }
+
+    public int? EventTypeId { get; set; }
+
+    public virtual EventType? EventType { get; set; }
 
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 

@@ -2,19 +2,52 @@
 
 @{
     ViewData["Title"] = "Booking List";
+
+    string? currentSearchQuery = ViewData["CurrentSearchQuery"] as string;
+    int? currentEventTypeId = ViewData["CurrentEventTypeId"] as int?;
+    string? currentStartDate = ViewData["CurrentStartDate"] as string;
+    string? currentEndDate = ViewData["CurrentEndDate"] as string;
+    bool? currentIsAvailable = ViewData["CurrentIsAvailable"] as bool?;
+
 }
 
 <h2>Booking List</h2>
 
-<form class="mb-4" method="get" asp-action="Index">
-    <div class="mb-2 mt-2">
-        <input type="text" name="searchQuery" class="form-control" placeholder="Search By Id, name or details" value="@Context.Request.Query["searchQuery"]" />
+<form asp-action="Index" method="get" class="mb-4 p-3 border rounded shadow-sm">
+    <h5 class="mb-3">Filter Bookings</h5>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label for="searchQuery" class="form-label">Search (ID, Name, Details):</label>
+            <input type="text" name="searchQuery" class="form-control" placeholder="Search..." value="@currentSearchQuery" />
+        </div>
+        <div class="col-md-6">
+            <label for="eventTypeId" class="form-label">Event Type:</label>
+            <select name="eventTypeId" class="form-select" asp-items="ViewBag.EventTypes">
+                <option value="">-- All Event Types --</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="startDate" class="form-label">Start Date:</label>
+            <input type="date" name="startDate" class="form-control" value="@currentStartDate" />
+        </div>
+        <div class="col-md-6">
+            <label for="endDate" class="form-label">End Date:</label>
+            <input type="date" name="endDate" class="form-control" value="@currentEndDate" />
+        </div>
+        <div class="col-md-12">
+            <div class="form-check">
+                <input type="checkbox" name="isAvailable" class="form-check-input" id="isAvailableCheckbox" value="true"
+                @(currentIsAvailable.HasValue && currentIsAvailable.Value ? "checked" : "") />
+                <label class="form-check-label" for="isAvailableCheckbox">Venue Is Available</label>
+                {{-- Hidden input to ensure 'false' is sent if checkbox is unchecked --}}
+                <input type="hidden" name="isAvailable" value="false" />
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Search Booking</button>
-    @if (!string.IsNullOrEmpty(Context.Request.Query["searchQuery"]))
-    {
-        <a href="@Url.Action("Index", "BookingView")" class="btn btn-outline-secondary">Clear</a>
-    }
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary me-2">Apply Filters</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Clear Filters</a>
+    </div>
 </form>
 
 <table class="table table-bordered table-striped">
@@ -24,6 +57,7 @@
             <th>Venue</th>
             <th>Location</th>
             <th>Capacity</th>
+            <th>Is Venue Available</th>
             <th>Event Name</th>
             <th>Event Date</th>
             <th>Details</th>
@@ -39,9 +73,11 @@
                 <td>@booking.VenueName</td>
                 <td>@booking.VenueLocation</td>
                 <td>@booking.Capacity</td>
+                <td>@Html.DisplayFor(modelItem => booking.IsAvailable)</td>
                 <td>@booking.EventName</td>
                 <td>@booking.EventDate.ToShortDateString()</td>
                 <td>@booking.Details</td>
+                <td>@booking.EventType</td>
                 <td>
                     <img src="@booking.Image" alt="Venue Image" width="100" />
                 </td>

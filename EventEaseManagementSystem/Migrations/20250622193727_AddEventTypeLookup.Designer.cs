@@ -4,6 +4,7 @@ using EventEaseManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventEaseManagementSystem.Migrations
 {
     [DbContext(typeof(EventEaseDBContext))]
-    partial class EventEaseDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250622193727_AddEventTypeLookup")]
+    partial class AddEventTypeLookup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,7 +186,7 @@ namespace EventEaseManagementSystem.Migrations
 
                     b.HasKey("EventTypeId");
 
-                    b.ToTable("EventTypes", (string)null);
+                    b.ToTable("EventTypes");
                 });
 
             modelBuilder.Entity("EventEaseManagementSystem.Models.Venue", b =>

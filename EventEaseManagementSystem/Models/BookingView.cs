@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace EventEaseManagementSystem.Models;
 
@@ -19,6 +20,8 @@ public partial class BookingView
 
     public string Image { get; set; } = null!;
 
+    public bool IsAvailable { get; set; }
+
     public int EventId { get; set; }
 
     public string EventName { get; set; } = null!;
@@ -26,4 +29,8 @@ public partial class BookingView
     public DateOnly EventDate { get; set; }
 
     public string Details { get; set; } = null!;
+
+    public string? EventType { get; set; }
+    public int? EventTypeId { get; set; }
+    
 }

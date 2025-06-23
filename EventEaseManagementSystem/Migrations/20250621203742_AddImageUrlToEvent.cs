@@ -10,10 +10,10 @@ namespace EventEaseManagementSystem.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Customers");
+            //migrationBuilder.DropTable(
+            //    name: "Customers");
 
-            migrationBuilder.DropIndex(
+            migrationBuilder.DropUniqueConstraint(
                 name: "UniqueBooking",
                 table: "Booking");
 

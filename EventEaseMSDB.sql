@@ -22,6 +22,17 @@ EventDate DATE NOT NULL,
 VenueID INT FOREIGN KEY (VenueID) REFERENCES Venue(VenueID)
 );
 
+CREATE TABLE EventType (
+EventTypeID INT IDENTITY(1,1) PRIMARY KEY,
+[Name] VARCHAR(100) NOT NULL UNIQUE
+);
+
+ALTER TABLE [Event]
+ADD EventTypeID INT;
+
+ALTER TABLE [Event]
+ADD CONSTRAINT EventTypeID FOREIGN KEY (EventTypeID) REFERENCES EventType(EventTypeID);
+
 CREATE TABLE Booking (
 BookingID INT IDENTITY(1,1) PRIMARY KEY,
 VenueID INT FOREIGN KEY (VenueID) REFERENCES Venue(VenueID),
@@ -43,6 +54,9 @@ INSERT INTO Booking (VenueID, EventID, BookingDate)
 VALUES (1, 1, '2025-04-04'),
 (2, 2, '2025-03-05');
 
+INSERT INTO EventType ([Name])
+VALUES ('Wedding'), ('Conference'), ('Concert'), ('Seminar'), ('Workshop'), ('Charity'), ('Expos'), ('Fair');
+
 -- TABLE MANIPULATION SECTION
 SELECT * FROM Venue
 SELECT * FROM [Event]
@@ -55,11 +69,40 @@ JOIN [Event] e ON b.EventID = e.EventID
 GO
 
 CREATE OR ALTER VIEW BookingView AS
-SELECT b.BookingID, b.BookingDate, v.VenueID, v.VenueName, v.[Location] AS VenueLocation, v.Capacity, v.ImageURL AS [Image], e.EventID, e.EventName, e.EventDate, e.[Description] AS Details
+SELECT b.BookingID, b.BookingDate, v.VenueID, v.VenueName, v.[Location] AS VenueLocation, v.Capacity, v.ImageURL AS [Image], v.IsAvailable, e.EventID, e.EventName, e.EventDate, e.[Description] AS Details, et.[Name] AS EventType, e.EventTypeID
 FROM Booking b
 JOIN Venue v ON b.VenueID = v.VenueID
 JOIN [Event] e ON b.EventID = e.EventID
+LEFT JOIN EventType et ON e.EventTypeID = et.EventTypeID
 ;
 GO
 
 SELECT * FROM BookingView
+
+IF OBJECT_ID('BookingView', 'V') IS NOT NULL
+    DROP VIEW BookingView;
+GO
+
+CREATE VIEW BookingView AS
+SELECT
+    b.BookingID,
+    b.BookingDate,
+    b.IsAvailable,
+    b.Image,
+    b.EventID,
+    e.EventName,
+    e.Description AS Details, -- Assuming 'Details' in BookingView maps to Event.Description
+    b.VenueID,
+    v.VenueName,
+    v.Location AS VenueLocation, -- Assuming 'VenueLocation' in BookingView maps to Venue.Location
+    e.EventTypeID,
+    et.Name AS EventType -- Assuming 'EventType' in BookingView maps to EventType.Name
+FROM
+    Booking b
+INNER JOIN
+    Event e ON b.EventID = e.EventID
+INNER JOIN
+    Venue v ON b.VenueID = v.VenueID
+INNER JOIN
+    EventType et ON e.EventTypeID = et.EventTypeID; -- Ensure 'EventTypes' is plural here if that's the table name
+GO

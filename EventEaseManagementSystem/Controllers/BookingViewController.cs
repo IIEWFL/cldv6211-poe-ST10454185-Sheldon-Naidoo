@@ -4,6 +4,9 @@ using EventEaseManagementSystem.Data;
 using EventEaseManagementSystem.Models;
 using Azure.Storage.Sas;
 using Azure.Storage;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using static NuGet.Packaging.PackagingConstants;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EventEaseManagementSystem.Controllers
 {
@@ -43,36 +46,80 @@ namespace EventEaseManagementSystem.Controllers
         }
 
         // GET: BookingView
-        public async Task<IActionResult> Index(string searchQuery)
+        public async Task<IActionResult> Index(string searchQuery, int? eventTypeId, DateTime? startDate, DateTime? endDate, bool? isAvailable)
         {
-            var bookingsList = await _context.BookingViews.ToListAsync();
+            var bookingsQuery = _context.BookingViews.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 searchQuery = searchQuery.ToLower();
-
-                bookingsList = bookingsList.Where(B =>
-                B.BookingId.ToString().Contains(searchQuery) ||
-                B.VenueId.ToString().Contains(searchQuery) ||
-                B.VenueName.ToLower().Contains(searchQuery) ||
-                B.VenueLocation.ToLower().Contains(searchQuery) ||
-                B.EventId.ToString().Contains(searchQuery) ||
-                B.EventName.ToLower().Contains(searchQuery) ||
-                B.Details.ToLower().Contains(searchQuery)).ToList();
+                bookingsQuery = bookingsQuery.Where(b =>
+                    b.BookingId.ToString().Contains(searchQuery) ||
+                    b.BookingDate.ToString().Contains(searchQuery) ||
+                    b.VenueName.ToLower().Contains(searchQuery) ||
+                    b.VenueLocation.ToLower().Contains(searchQuery) ||
+                    b.EventName.ToLower().Contains(searchQuery) ||
+                    b.Details.ToLower().Contains(searchQuery));
             }
 
-            // Fetch the data from the database
-            //var bookings = await _context.BookingViews.ToListAsync();
-
-            // Generate SAS URLs for each image
-            foreach (var booking in bookingsList)
+            if (eventTypeId.HasValue)
             {
-                booking.Image = string.IsNullOrEmpty(booking.Image)
-                    ? ""
-                    : GenerateSasUrl(booking.Image);
+                bookingsQuery = bookingsQuery.Where(b => b.EventTypeId == eventTypeId);
             }
 
-            return View(bookingsList);
+            // 3.Apply Date Range filters
+            if (startDate.HasValue)
+            {
+                // Filter where BookingDate is on or after startDate
+                bookingsQuery = bookingsQuery.Where(b => b.BookingDate >= DateOnly.FromDateTime(startDate.Value));
+            }
+
+            if (endDate.HasValue)
+            {
+                // Filter where BookingDate is on or before endDate
+                bookingsQuery = bookingsQuery.Where(b => b.BookingDate <= DateOnly.FromDateTime(endDate.Value));
+            }
+
+
+            if (isAvailable.HasValue)
+            {
+                bookingsQuery = bookingsQuery.Where(b => b.IsAvailable == isAvailable.Value);
+            }
+
+            var bookings = await bookingsQuery.ToListAsync();
+
+            // Attach SAS URLs for Images
+            foreach (var booking in bookings)
+            {
+                // Handle potential null Image from DB correctly before passing to GenerateSasUri
+                // This ensures 'booking.Image' is always a string (empty if null from DB)
+                booking.Image = booking.Image ?? ""; // If dbBooking.Image is null, set to ""
+
+                // Only call GenerateSasUri if there's an actual image path
+                if (!string.IsNullOrEmpty(booking.Image))
+                {
+                    // Assuming GenerateSasUri returns the SAS URL string and you want to assign it back
+                    booking.Image = GenerateSasUrl(booking.Image);
+                }
+                // If booking.Image was null or empty, it will remain an empty string from the ?? "" operation.
+            }
+
+            //ViewData["EventTypes"] = new SelectList(_context.EventTypes.ToList(), "EventTypeId", "Name");
+
+            // Populate ViewData for the Event Type dropdown filter
+            // Order by Name for better display
+            ViewData["EventTypes"] = new SelectList(_context.EventTypes.OrderBy(et => et.Name), "EventTypeId", "Name", eventTypeId);
+
+            // Pass current filter values back to the view to pre-fill the form inputs
+            ViewData["CurrentSearchQuery"] = searchQuery;
+            ViewData["CurrentEventTypeId"] = eventTypeId; // Keep for dropdown selection
+            ViewData["CurrentStartDate"] = startDate?.ToString("yyyy-MM-dd"); // Format for HTML date input
+            ViewData["CurrentEndDate"] = endDate?.ToString("yyyy-MM-dd");     // Format for HTML date input
+            ViewData["CurrentIsAvailable"] = isAvailable; // For checkbox state
+
+
+
+            return View(bookings);
         }
 
         // GET: BookingView Details

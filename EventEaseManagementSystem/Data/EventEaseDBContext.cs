@@ -24,6 +24,8 @@ public partial class EventEaseDBContext : DbContext
 
     public virtual DbSet<Venue> Venues { get; set; }
 
+    public virtual DbSet<EventType> EventTypes { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Booking>(entity =>
@@ -71,6 +73,10 @@ public partial class EventEaseDBContext : DbContext
             entity.Property(e => e.VenueName)
                 .HasMaxLength(150)
                 .IsUnicode(false);
+            entity.Property(e => e.EventTypeId).HasColumnName("EventTypeID");
+            entity.Property(e => e.EventType)
+                .HasMaxLength(100)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<Event>(entity =>
@@ -88,10 +94,28 @@ public partial class EventEaseDBContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.VenueId).HasColumnName("VenueID");
 
+            entity.Property(e => e.EventTypeId).HasColumnName("EventTypeID");
+
             entity.HasOne(d => d.Venue).WithMany(p => p.Events)
                 .HasForeignKey(d => d.VenueId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Event_Venue");
+
+            entity.HasOne(d => d.EventType)
+                .WithMany(et => et.Events)
+                .HasForeignKey(d => d.EventTypeId)
+                .OnDelete(DeleteBehavior.SetNull) // You can change this behavior
+                .HasConstraintName("FK_Event_EventType");
+        });
+
+        modelBuilder.Entity<EventType>(entity =>
+        {
+            entity.HasKey(e => e.EventTypeId);
+            entity.Property(e => e.EventTypeId).HasColumnName("EventTypeID");
+            entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(100)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<Venue>(entity =>
