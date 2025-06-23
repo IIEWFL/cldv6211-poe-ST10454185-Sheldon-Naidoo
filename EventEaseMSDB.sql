@@ -83,26 +83,3 @@ IF OBJECT_ID('BookingView', 'V') IS NOT NULL
     DROP VIEW BookingView;
 GO
 
-CREATE VIEW BookingView AS
-SELECT
-    b.BookingID,
-    b.BookingDate,
-    b.IsAvailable,
-    b.Image,
-    b.EventID,
-    e.EventName,
-    e.Description AS Details, -- Assuming 'Details' in BookingView maps to Event.Description
-    b.VenueID,
-    v.VenueName,
-    v.Location AS VenueLocation, -- Assuming 'VenueLocation' in BookingView maps to Venue.Location
-    e.EventTypeID,
-    et.Name AS EventType -- Assuming 'EventType' in BookingView maps to EventType.Name
-FROM
-    Booking b
-INNER JOIN
-    Event e ON b.EventID = e.EventID
-INNER JOIN
-    Venue v ON b.VenueID = v.VenueID
-INNER JOIN
-    EventType et ON e.EventTypeID = et.EventTypeID; -- Ensure 'EventTypes' is plural here if that's the table name
-GO
