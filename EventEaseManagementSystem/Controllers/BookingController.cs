@@ -26,14 +26,18 @@ namespace EventEaseManagementSystem.Controllers
 
             if (!string.IsNullOrEmpty(searchQuery))
             {
+                searchQuery = searchQuery.ToLower();
                 bookings = bookings.Where(b =>
-                    b.VenueId.ToString().Contains(searchQuery) ||
-                    b.EventId.ToString().Contains(searchQuery) ||
+                    b.BookingId.ToString().Contains(searchQuery) ||
+                    b.Event.EventName.ToLower().Contains(searchQuery) ||
+                    b.Venue.VenueName.ToLower().Contains(searchQuery) ||
                     b.BookingDate.ToString().Contains(searchQuery)
                 );
             }
+            var bookingList = await bookings.ToListAsync();
 
-            return View(await bookings.ToListAsync());
+            ViewData["CurrentSearchQuery"] = searchQuery;
+            return View(bookingList);
         }
 
         // GET: Booking/Details/5

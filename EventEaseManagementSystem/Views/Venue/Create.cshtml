@@ -35,8 +35,14 @@
                 <span asp-validation-for="UploadImage" class="text-danger"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary">Create</button>
-            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            <div class="form-group form-check mt-3">
+                <input class="form-check-input" asp-for="IsAvailable" type="checkbox" />
+                <label class="form-check-label" asp-for="IsAvailable"></label>
+                <span asp-validation-for="IsAvailable" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Create</button>
+            <a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>
         </form>
     </div>
 </div>

@@ -22,7 +22,7 @@ public partial class Venue
     [Required(ErrorMessage = "Venue Image Picture is required")]
     public string ImageUrl { get; set; } = null!;
 
-    public bool IsAvailable { get; set; }
+    public bool IsAvailable { get; set; } = true;
 
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 

@@ -1,49 +1,56 @@
 ﻿@model EventEaseManagementSystem.Models.Event
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Event Details"; 
 }
 
-<h1>Edit</h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Edit Event Details</h2> 
+    <div>
+        <button type="submit" form="editForm" class="btn btn-primary me-2">Save</button> 
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a> 
+    </div>
+</div>
 
-<h4>Event</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-6">
+
+        <form asp-action="Edit" id="editForm">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="EventId" />
-            <div class="form-group">
-                <label asp-for="EventName" class="control-label"></label>
+
+            <div class="form-group mb-3">
+
+                <label asp-for="EventName" class="control-label">Event Name</label> 
                 <input asp-for="EventName" class="form-control" />
                 <span asp-validation-for="EventName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="EventDate" class="control-label"></label>
-                <input asp-for="EventDate" class="form-control" />
+
+            <div class="form-group mb-3">
+                <label asp-for="EventDate" class="control-label">Event Date</label> 
+                <input asp-for="EventDate" class="form-control" type="date" /> 
                 <span asp-validation-for="EventDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group mb-3">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea> 
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="VenueId" class="control-label"></label>
+
+            <div class="form-group mb-3">
+                <label asp-for="VenueId" class="control-label">Select Venue</label> 
                 <select asp-for="VenueId" class="form-control" asp-items="ViewBag.VenueId"></select>
                 <span asp-validation-for="VenueId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

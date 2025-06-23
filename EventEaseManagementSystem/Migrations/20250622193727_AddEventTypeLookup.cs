@@ -38,6 +38,7 @@ namespace EventEaseManagementSystem.Migrations
                 name: "IX_Event_EventTypeID",
                 table: "Event",
                 column: "EventTypeID");
+
         }
 
         /// <inheritdoc />

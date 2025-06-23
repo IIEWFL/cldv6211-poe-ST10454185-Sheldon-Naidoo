@@ -92,6 +92,7 @@ namespace EventEaseManagementSystem.Controllers
             var Venue = _context.Venues.AsQueryable();
             if (!string.IsNullOrEmpty(searchQuery))
             {
+                searchQuery = searchQuery.ToLower();
                 Venue = Venue.Where(v => 
                 v.VenueId.ToString().Contains(searchQuery) ||
                 v.VenueName.Contains(searchQuery) ||
@@ -106,8 +107,11 @@ namespace EventEaseManagementSystem.Controllers
                 VenueName = v.VenueName,
                 Location = v.Location,
                 Capacity = v.Capacity,
+                IsAvailable = v.IsAvailable,
                 ImageUrl = string.IsNullOrEmpty(v.ImageUrl) ? "" : GenerateSasUrl(v.ImageUrl)
             }).ToList();
+
+            ViewData["CurrentSearchQuery"] = searchQuery;
 
             return View(venueWithUrls);
         }
@@ -165,7 +169,8 @@ namespace EventEaseManagementSystem.Controllers
                     VenueName = model.VenueName,
                     Location = model.Location,
                     Capacity = model.Capacity,
-                    ImageUrl = imageUrl
+                    ImageUrl = imageUrl,
+                    IsAvailable = model.IsAvailable
                 };
 
                 _context.Add(venue);
@@ -206,7 +211,7 @@ namespace EventEaseManagementSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VenueId,VenueName,Location,Capacity,ImageUrl")] Venue venue, IFormFile? VenuePicture)
+        public async Task<IActionResult> Edit(int id, [Bind("VenueId,VenueName,Location,Capacity,ImageUrl,IsAvailable")] Venue venue, IFormFile? VenuePicture)
         {
             if (id != venue.VenueId)
             {
@@ -217,13 +222,48 @@ namespace EventEaseManagementSystem.Controllers
             {
                 try
                 {
-                    if (VenuePicture != null && VenuePicture.Length > 0)
+                    var venueToUpdate = await _context.Venues.AsNoTracking().FirstOrDefaultAsync(v => v.VenueId == id);
+                    if (venueToUpdate == null)
                     {
-                        string blobName = await UploadImageToBlobAsync(VenuePicture);
-                        venue.ImageUrl = blobName;
+                        return NotFound();
                     }
 
-                    _context.Update(venue);
+                    string? oldBlobName = venueToUpdate.ImageUrl;
+                    string? newBlobName = null;
+
+                    if (VenuePicture != null && VenuePicture.Length > 0)
+                    {
+                        // 1. Upload the new image FIRST
+                        newBlobName = await UploadImageToBlobAsync(VenuePicture);
+
+                        // 2. Update the venue's ImageUrl with the new blob name
+                        venue.ImageUrl = newBlobName; 
+                    }
+
+                    venueToUpdate.VenueName = venue.VenueName;
+                    venueToUpdate.Location = venue.Location;
+                    venueToUpdate.Capacity = venue.Capacity;
+                    venueToUpdate.IsAvailable = venue.IsAvailable;
+                    venueToUpdate.ImageUrl = venue.ImageUrl;
+
+                    _context.Update(venueToUpdate);
+
+                    if (!string.IsNullOrEmpty(oldBlobName) && oldBlobName != newBlobName)
+                    {
+                        try
+                        {
+                            var containerClient = GetContainerClient();
+                            var blobClient = containerClient.GetBlobClient(oldBlobName);
+                            await blobClient.DeleteIfExistsAsync();
+                        }
+                        catch (Exception ex)
+                        {
+                            // Log the error but don't prevent the venue update from saving
+                            Console.WriteLine($"Error deleting old blob '{oldBlobName}': {ex.Message}");
+                            // Optionally, add a TempData error or use ILogger
+                        }
+                    }
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -237,6 +277,14 @@ namespace EventEaseManagementSystem.Controllers
                         throw;
                     }
                 }
+
+                catch (Exception ex) // Catch-all for other potential errors, e.g., during upload
+                {
+                    ModelState.AddModelError("", $"An error occurred: {ex.Message}");
+                    // Log the full exception details here
+                    return View(venue);
+                }
+
                 // Set temporary message
                 TempData["UpdateMessage"] = $"Venue {venue.VenueName} was updated successfully!";
                 return RedirectToAction(nameof(Index));
@@ -252,6 +300,8 @@ namespace EventEaseManagementSystem.Controllers
             var venue = await _context.Venues.FirstOrDefaultAsync(v => v.VenueId == id);
             if (venue == null)
                 return NotFound();
+
+            venue.ImageUrl = GenerateSasUrl(venue.ImageUrl);
 
             return View(venue);
         }

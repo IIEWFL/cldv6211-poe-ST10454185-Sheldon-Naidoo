@@ -31,8 +31,11 @@ namespace EventEaseManagementSystem.Controllers
                 events = events.Where(e =>
                 e.EventName.ToLower().Contains(searchQuery) ||
                 e.Description.ToLower().Contains(searchQuery) ||
-                EF.Functions.Like(e.EventDate.ToString(), $"%(searchQuery%)"));
+                e.EventDate.ToString().Contains(searchQuery) || 
+                e.Venue.VenueName.ToLower().Contains(searchQuery));
             }
+
+            ViewData["CurrentSearchQuery"] = searchQuery;
             return View(await events.ToListAsync());
         }
 

@@ -6,10 +6,10 @@ namespace EventEaseManagementSystem.Models
     public class VenueView
     {
         public int VenueId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Venue Name is required.")]
         public string VenueName { get; set; } = null!;
 
-        [Required]
+        [Required(ErrorMessage = "Location is required.")]
         public string Location { get; set; } = null!;
 
         [Required]
@@ -20,5 +20,8 @@ namespace EventEaseManagementSystem.Models
 
         [Display(Name = "Upload Picture")]
         public IFormFile? UploadImage { get; set; } // <-- used in form upload
+
+        [Display(Name = "Is Available")]
+        public bool IsAvailable { get; set; } = true;
     }
 }

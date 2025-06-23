@@ -1,42 +1,46 @@
 ﻿@model EventEaseManagementSystem.Models.Venue
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Venue Details"; 
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Venue</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VenueName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VenueName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Capacity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Capacity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-    </dl>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Venue Details</h2> 
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.VenueId" class="btn btn-primary me-2">Edit</a> 
+        <a asp-action="Index" class="btn btn-secondary">Back to list</a> 
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.VenueId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" alt="Venue Image" class="img-fluid rounded shadow-sm" style="max-width: 100%; height: auto;" />
+        }
+        else
+        {
+            <div class="bg-light d-flex align-items-center justify-content-center border rounded" style="width: 100%; height: 250px;">
+                <span class="text-muted">No Image Available</span>
+            </div>
+        }
+    </div>
+
+
+    <div class="col-md-8">
+
+        <h3 class="mb-3">@Model.VenueName</h3> 
+        <p class="text-muted mb-4">@Model.Location</p> 
+
+        <dl class="row mb-0">
+
+            <dt class="col-sm-3">Capacity:</dt>
+            <dd class="col-sm-9">@Model.Capacity</dd>
+
+            <dt class="col-sm-3">Available:</dt>
+            <dd class="col-sm-9">@(Model.IsAvailable ? "Yes" : "No")</dd> 
+        </dl>
+    </div>
 </div>
